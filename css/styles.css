@@ -273,3 +273,147 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+/* my css @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+starting from the smallest vievports*/
+@media screen and (max-width: 550px){
+#restaurants-list li{
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+#restaurants-list{
+  margin: 10px 20px;
+  padding: 0;
+}
+#restaurants-list .restaurant-img{
+  margin: auto;
+}
+.filter-options
+{
+  padding-top: 10px;
+  margin-bottom: 50px;
+  height: 20vh;
+  text-align: center;
+}
+#restaurants-list li h1{
+  text-align: center;
+}
+#restaurants-list p{
+  text-align: center;
+}
+#restaurants-list li a{
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.filter-options{
+  height: 20%;
+}
+nav h1 {
+      padding-top: 10px;
+      padding-bottom: 20px;
+}
+#restaurants-list li:last-of-type{
+  margin-bottom: 20px;
+}
+#restaurants-list .restaurant-img{
+  height: 30vh;
+}
+nav{
+  height: 20%;
+}
+nav h1{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+}
+@media screen and (min-width: 551px) and (max-width: 900px){
+  #restaurants-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  width: 100%;
+  }
+  #restaurants-list li{
+    width: calc((100% - 20px)/2);
+    margin: 3px;
+    padding: 0;
+    border: 1px solid black;
+    height: 40%;
+  }
+  #restaurants-list li:nth-child( 2n + 1 ){
+    margin-right: 6px;
+  }
+  #restaurants-list li h1{
+  text-align: center;
+ }
+ #restaurants-list p{
+  text-align: center;
+ }
+ #restaurants-list li a{
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+nav h1{
+ padding-top: 20px; 
+}
+.filter-options{
+  height: 20%;
+  text-align: center;
+  padding-top: 10px;
+}
+}
+@media screen and (min-width: 901px){
+  .filter-options{
+  height: 20%;
+  text-align: center;
+  padding-top: 10px;
+}
+  #restaurants-list{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  width: 100%;
+  }
+  #restaurants-list li{
+    width: calc((100% - 20px)/3);
+    margin: 2px;
+    padding: 0;
+    border: 1px solid black;
+    height: 40%;
+  }
+  #restaurants-list li:last-of-type{
+    width: calc((100% - 20px)/3);
+    margin: 2px;
+    padding: 0;
+    border: 1px solid black;
+    height: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #restaurants-list li a{
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+nav h1{
+ padding-top: 20px; 
+}
+#footer{
+  text-align: left;
+}
+nav{
+  position: fixed;
+  z-index: 10;
+}
+#maincontent{
+  padding-top: 80px;
+}
+  #restaurants-list li h1{
+  text-align: center;
+ }
+ #restaurants-list p{
+  text-align: center;
+ }
+}
+#restaurants-list li:hover{
+  box-shadow: 0px 0px 5px black, 0px 0px 5px black,0px 0px 5px black;
+}
