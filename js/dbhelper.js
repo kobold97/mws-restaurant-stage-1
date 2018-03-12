@@ -15,7 +15,7 @@ class DBHelper {
   /**
    * Fetch all restaurants.
    */
-  static fetchRestaurants(callback) {
+  static fetchRestaurants(callback) { 
     let xhr = new XMLHttpRequest();
     xhr.open('GET', DBHelper.DATABASE_URL);
     xhr.onload = () => {
@@ -143,14 +143,48 @@ class DBHelper {
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
+
     return (`./restaurant.html?id=${restaurant.id}`);
   }
 
   /**
    * Restaurant image URL.
    */
+/*Since <picture> element wasn't used here I decided to implement its logic using javascript */
   static imageUrlForRestaurant(restaurant) {
-    return (`/img/${restaurant.photograph}`);
+    /*that suffix is gonna be calculated and later on added to my url*/
+    let img_suffix;
+    /*I'm getting screen width*/
+    let screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    /*I'm gettin dpi*/
+    let device_pixel_ratio = window.devicePixelRatio;
+    /*I cut '.jpg' part of the restaurant.photograph value*/
+    let sliced_photo = restaurant.photograph.slice(0,1);
+    /*I'm implementing picture like logic*/
+    if( screen_width <= 550 ){
+      if( device_pixel_ratio <= 1.5 ){
+        img_suffix = '-300_x1.jpg';
+      }
+      else {
+        img_suffix = '-300_x2.jpg';
+      }
+    }
+    else if ( screen_width <= 900 ){
+      if( device_pixel_ratio <= 1.5 ){
+        img_suffix = '-500_x1.jpg';
+      }
+      else {
+        img_suffix = '-500_x2.jpg';
+      }
+    } else if ( screen_width >= 901 ){
+      if( device_pixel_ratio <= 1.5 ){
+        img_suffix = '-1000_x1.jpg';
+      }
+      else {
+        img_suffix = '-1000_x2.jpg';
+      }
+    }
+        return (`/images/${sliced_photo}${img_suffix}`);
   }
 
   /**

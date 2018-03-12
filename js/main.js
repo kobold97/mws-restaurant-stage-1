@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
 });
+/**In order to update the photos I'm now updating all restaurants when resizing*/
+window.addEventListener('resize', (event) => {
+    updateRestaurants();
+});
 
 /**
  * Fetch all neighborhoods and set their HTML.
