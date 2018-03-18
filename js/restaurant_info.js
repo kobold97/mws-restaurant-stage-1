@@ -1,6 +1,15 @@
+/*I didn't register service worker here because it's already beeing registered in main.js
+and restaurant.html and index.html are the same origin so I don't have to do anything here 
+right?*/
+
 let restaurant;
 var map;
 
+/* I do this because I have no any other idea how to rerender images when resizing.*/
+window.addEventListener('resize', (event) => {
+    location.reload();
+});
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /**
  * Initialize Google map, called from HTML.
  */
@@ -58,6 +67,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+/*setting alt attribute but since its just a picture@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+  image.setAttribute('alt','picture representing particular restaurant');
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;

@@ -1,3 +1,38 @@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Service worker registration
+/*I'm not sure weather I'm supposed to make another js file called 'service_worker_API' or smth
+like that because 'main.js' is already full of code that is completely unreleated to service worker.
+/* Here I decided to use delegation pattern (although I dont have other API to delegate
+it to the current one yet). It's just my choice. I was also thinking about modular approach.
+I'm trying to avoid classes since their implementation in js differs from the one used in other
+OO launguages so I didn't even consider using them here (or anywhere else).*/
+var serviceWorkerAPI = {
+
+registerServiceWorker(){
+  if(!navigator.serviceWorker) return;
+  /*This single line of code here took me about 3 hours to figure out. The worst part is that I still don't know
+  how this works. The problem is that when I registered it by writing  things like:
+  ('service_worker.js') or when I put it into 'js' directory: ('js/service_worker.js')
+  than console said that's all ok and registered but when I clicked to see the script in devTools
+  than it was always empty and hence didn't do anything at all. Linking it via localhost was 
+  the only way for it to work. Did I do something wrong? I'm really curious. The server I'm using
+  is simple python server. To run it I go to my directory and type 'pythom -m http.server'.
+  Could this behaviour be server related?*/
+    navigator.serviceWorker.register('http://localhost:8000/service_worker.js')
+  /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+    .then
+      (function onRegistered(event){
+        console.log('I\'m registered', event);
+      })
+    .catch
+      (function unableToRegister(err){
+        console.log(err);
+    });
+  }
+};
+
+serviceWorkerAPI.registerServiceWorker();
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 let restaurants,
   neighborhoods,
   cuisines
@@ -141,10 +176,13 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.setAttribute('aria-label', 'tale storing informations about particular restaurant');
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+/*setting alt attribute but since its just a picture@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+  image.setAttribute('alt','picture representing particular restaurant');
   li.append(image);
 
   const name = document.createElement('h1');
@@ -180,3 +218,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
+
