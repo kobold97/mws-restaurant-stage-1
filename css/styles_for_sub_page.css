@@ -311,6 +311,11 @@ nav h1 a {
 }
 
 /*my css @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/* restaurant address */
+#restaurant-address{
+  text-align: center;
+}
+
 /* Footer */
 .inside #footer {
   bottom: 0;
@@ -437,7 +442,7 @@ my css starting from the smallest viewports using mostly fluid responsive patter
 }
 
 
-/*Major break point @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+/*Another major break point @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 @media screen and (min-width:550px) and (max-width:950px) {
 
   #restaurant-container {

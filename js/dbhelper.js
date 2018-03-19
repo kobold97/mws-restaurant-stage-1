@@ -159,7 +159,7 @@ class DBHelper {
     /*I'm gettin dpi*/
     let device_pixel_ratio = window.devicePixelRatio;
     /*I cut '.jpg' part of the restaurant.photograph value*/
-    let sliced_photo = restaurant.photograph.slice(0,1);
+    let sliced_photoName = restaurant.photograph.slice(0,1);
     /*I'm implementing picture like logic*/
     if( screen_width <= 550 ){
       if( device_pixel_ratio <= 1.5 ){
@@ -184,7 +184,7 @@ class DBHelper {
         img_suffix = '-1000_x2.jpg';
       }
     }
-        return (`/images/${sliced_photo}${img_suffix}`);
+        return (`/images/${sliced_photoName}${img_suffix}`);
   }
 
   /**

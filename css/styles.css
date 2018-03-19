@@ -319,7 +319,21 @@ nav h1 a {
 #neighborhoods-select:focus,#cuisines-select:focus, #restaurants-list li a:focus{
   border: 5px solid red;
 }
+/*Skip link*/
+.skip-link{
+  position: absolute;
+  left: 0;
+  top: -40px;
+  z-index: 100;
+  color: black;
+  background: red;
+  font-size: 15px;
+  padding: 2px;
+}
 
+.skip-link:focus{
+  top: 0;
+}
 /*using mostly fluid responsive pattern
 /*css for major break points @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 starting from the smallest vievports*/

@@ -10,6 +10,8 @@
 </head>
 
 <body>
+<!-- I was first trying to make map unfocusable but that didn't work out so I decided to make a skip link here and allow user to skip to the main content -->
+<a href="#neighborhoods-select" class="skip-link">Skip focusing map</a>
   <header>
     <nav>
       <h1><a href="/">Restaurant Reviews</a></h1>
@@ -17,13 +19,16 @@
   </header>
 
   <main id="maincontent">
-    <section id="map-container">
+  <!--I decided that for screen reader users map is not usefull so I gave it aria-hidden="true"-->
+    <section id="map-container" aria-hidden="true">
       <div id="map"></div>
     </section>
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+<!--I added 'onfocus=(..)' because I needed to go back to the top of the screen because
+otherwise focused element was covered by the fixed menu -->
+        <select id="neighborhoods-select" name="neighborhoods" onfocus="scrollLock();" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">

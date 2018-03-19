@@ -218,4 +218,9 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 }
-
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+my helper func tion that I use i n index.html on onscroll attribute*/
+function scrollLock(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
