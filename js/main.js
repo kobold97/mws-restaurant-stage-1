@@ -184,8 +184,8 @@ createRestaurantHTML = (restaurant) => {
 /*setting alt attribute but since its just a picture@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
   image.setAttribute('alt',`picture representing "${restaurant.name}" restaurant`);
   li.append(image);
-
-  const name = document.createElement('h1');
+/*correcting h1 to h2 to maintain priority order*/
+  const name = document.createElement('h2');
   name.setAttribute('tabindex', 0);
   name.innerHTML = restaurant.name;
   li.append(name);

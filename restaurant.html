@@ -19,8 +19,8 @@
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb" >
-      <li><a href="/">Home</a></li>
+    <ul id="breadcrumb">
+      <li><a href="/" >Home</a></li>
     </ul>
     <!-- End breadcrumb -->
     <!-- End nav -->
@@ -31,13 +31,15 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <!--I decided that for screen reader users map is not usefull so I gave it aria-hidden="true". I haven't added skip link here because there isn't really any content to skip to-->
-    <section id="map-container" aria-hidden="true">
+    <!-- Adding aria-role="application" for better user experience -->
+    <section id="map-container" aria-role="application">
       <div id="map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
+    <!-- correcting header usage. Changing h1 on h2 -->
+      <h2 id="restaurant-name"></h2>
       <img id="restaurant-img">
       <!-- I decided to wrap those two p's and table because otherwise I could not @@@@@@@@@@@@@@
       use the design pattern I wanted -->
