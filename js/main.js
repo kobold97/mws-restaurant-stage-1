@@ -30,7 +30,7 @@ registerServiceWorker(){
   }
 };
 
-//serviceWorkerAPI.registerServiceWorker();
+serviceWorkerAPI.registerServiceWorker();
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 let restaurants,
@@ -38,6 +38,7 @@ let restaurants,
   cuisines
 var map
 var markers = []
+var imgArr = []
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -225,3 +226,4 @@ function scrollLock(){
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
+

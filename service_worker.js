@@ -7,41 +7,28 @@ So I abandoned 'install' event and cached everything in the 'fetch' event. I'm q
 workers so I will appreciate any kind of feedback.*/
 
 /*  I named my only cache in the app and stored it in the variable */
-var cacheName = 'Global_cache';
-/*This is unnecessary and does nothing but I will leave it because I'm not sure weather
-it was a good choice to cache nothing here and everything in the 'fetch' event so I might use it
-later*/
+var cacheName = 'Global_cache2';
+var fileArr = ["data/restaurants.json", "css/styles.css", "css/styles_for_sub_page.css", "index.html", "restaurant.html", "js/dbhelper.js", "js/main.js", "js/restaurant_info.js", "service_worker.js"];
+
+
+/*When service worker is installing I'm caching all static files */
 self.addEventListener('install', function runWhenInstalling(event){
 	event.waitUntil(
-		caches.open(cacheName).then(function caheAll(db){
-		db.addAll([/*'index.html',
-			'restaurant.html',
-			'data/restaurants.json',
-			'css/styles.css',
-			'css/styles_for_sub_page.css',
-			'js/dbhelper.js',
-			'js/main.js',
-			'js/restaurant_info.js',
-			'service_worker.js'
-			*/]);
-	}).catch(function cachingFailed(err){console.log(err);})
-		)
-});	
-
-/*Here I cache every single request and store it in my cache.
-The mechanism here assures that later on if response would be found in the cache
-it would serve it from there instead of going to the network*/
-self.addEventListener('fetch', function cachingOrServingRequests(event) {
-  event.respondWith(
-    caches.open(cacheName).then(function findResponseInCache(cache) {
-      return cache.match(event.request).then(function serveResponseIfFound(response) {
-        return response || fetch(event.request).then(function ifNotServeFromNetworkAndCache(response) {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
+    caches.open(cacheName).then(function(cache) {
+     	 return cache.addAll(fileArr);
     })
   );
+});	
+
+/*Here I no longer cache everything. I just check if I
+already cached the request and if yes than serve it. If no than I go to the network.*/
+self.addEventListener('fetch', function cachingOrServingRequests(event) {
+  event.respondWith(
+  	caches.match(event.request).then(function checkIfInCache(response){
+  		if (response) return response; 
+  		return fetch(event.request);
+  	})
+    )
 });
 
 /*Now this bit here is for the future. If I will ever have more caches than one
