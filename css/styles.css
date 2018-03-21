@@ -519,11 +519,3 @@ Is there any way to avoid this?
 For example if I noticed that in every one of these three break points there is: 
 .example {background-color: red;}
 Can I do something about that?*/
-@media screen and (min-width:1200px) {
-  header, main, nav {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-}
