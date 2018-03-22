@@ -17,7 +17,7 @@ registerServiceWorker(){
   the only way for it to work. Did I do something wrong? I'm really curious. The server I'm using
   is simple python server. To run it I go to my directory and type 'pythom -m http.server'.
   Could this behaviour be server related?*/
-    navigator.serviceWorker.register('http://localhost:8000/service_worker.js')
+    navigator.serviceWorker.register('service_worker.js')
   /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
     .then
       (function onRegistered(event){
